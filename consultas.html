@@ -1,35 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos de la universidad</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+	    text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Datos de la universidad</h2>
+    <h1>Datos de la universidad</h1>
 
-<form action="consultas.cgi" method="post">
-    <label for="codigo_entidad">Código de Entidad:</label>
-    <input type="text" id="codigo_entidad" name="codigo_entidad" required><br>
+    <form action="../cgi-bin/consultas.cgi" method="post">
+        
+        <label for="nombre_entidad">Nombre de Entidad:</label>
+        <input type="text" id="nombre_entidad" name="nombre_entidad" required><br>
 
-    <label for="nombre_entidad">Nombre de Entidad:</label>
-    <input type="text" id="nombre_entidad" name="nombre_entidad" required><br>
-
-    <label for="tipo_gestion">Tipo de Gestión:</label>
-    <input type="text" id="tipo_gestion" name="tipo_gestion" required><br>
-
-    <label for="departamento">Departamento:</label>
-    <input type="text" id="departamento" name="departamento" required><br>
-
-    <label for="tipo_nivel_academico">Tipo de Nivel Académico:</label>
-    <input type="text" id="tipo_nivel_academico" name="tipo_nivel_academico" required><br>
-
-    <label for="estado_licenciamiento">Estado de Licenciamiento:</label>
-    <input type="text" id="estado_licenciamiento" name="estado_licenciamiento" required><br>
-
-    <input type="submit" value="Enviar">
-</form>
+        <input type="submit" value="Enviar">
+    </form>
 
 </body>
 </html>
