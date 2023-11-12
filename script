@@ -5,17 +5,16 @@ use warnings;
 use CGI;
 use Text::CSV;
 
-# Crear un nuevo objeto CGI
 my $cgi = CGI->new;
-
-# Obtener el parámetro del formulario (nombre de la entidad)
 my $nombre_entidad = $cgi->param('nombre_entidad');
-
 my $csv_file = 'universidades.csv';
-
 open my $csv_fh, '<', $csv_file or die "No se pudo abrir el archivo CSV: $!";
-
 my $csv = Text::CSV->new({ binary => 1, auto_diag => 1 });
+
+print $cgi->header(-type => 'text/html', -charset => 'utf-8'),
+      $cgi->start_html(-title => 'Resultados de búsqueda');
+
+print '<body>';
 
 while (my $row = $csv->getline($csv_fh)) {
     if ($row->[1] =~ /$nombre_entidad/i) {
@@ -24,3 +23,6 @@ while (my $row = $csv->getline($csv_fh)) {
 }
 
 close $csv_fh;
+
+print '</body>';
+print $cgi->end_html;
